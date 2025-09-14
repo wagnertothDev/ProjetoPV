@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* ======= Tema Church ======= */
+
+:root{
+  /* paleta serena */
+  --church-ink: #0f172a;     /* slate-900 */
+  --church-indigo: #4338ca;  /* indigo-700 */
+  --church-sky: #38bdf8;     /* sky-400  */
+  --church-emerald: #10b981; /* emerald-500 */
+  --church-amber: #f59e0b;   /* amber-500 */
+  --church-cream: #f8fafc;   /* slate-50  */
+}
+
+/* Fundo temático com degradê e padrão sutil (pomba/cruz) */
+.themed-bg{
+  background:
+    radial-gradient(1200px 800px at 30% -10%, rgba(67,56,202,.18), transparent 60%),
+    radial-gradient(1000px 700px at 100% 0%, rgba(56,189,248,.20), transparent 70%),
+    radial-gradient(900px 700px at 0% 100%, rgba(16,185,129,.16), transparent 60%),
+    linear-gradient(180deg, #ffffff, var(--church-cream));
+  position: relative;
+}
+.themed-bg::before{
+  /* padrão SVG ultra leve (pomba e cruz) */
+  content:"";
+  position:absolute; inset:0; pointer-events:none; opacity:.08;
+  background-image:
+    url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'>\
+      <g fill='none' stroke='%2381a1f9' stroke-width='1'>\
+        <path d='M20 58 l10 -10 10 10 -10 -4 -10 4z'/>\
+        <path d='M86 26 v14 m-7 -7 h14'/>\
+      </g>\
+    </svg>");
+  background-size: 140px 140px;
+}
+
+/* halo radial usado no layout */
+.bg-radial{
+  background: radial-gradient(closest-side, #ffffff, rgba(255,255,255,0) 70%);
+}
+
+/* inputs base (sem @apply) */
+input, select, textarea{
+  background:#fafafa;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  padding:.5rem .75rem;
+}
+input:focus, select:focus, textarea:focus{
+  outline:none;
+  border-color: var(--church-ink);
+  box-shadow: 0 0 0 2px var(--church-ink);
+}
+
+/* cartão utilitário */
+.card {
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  box-shadow: 0 4px 16px rgba(15,23,42,.05);
+}
